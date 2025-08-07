@@ -4,7 +4,7 @@ module "frontend" {
 }
 module "backend" {
     source      = "./service2-backend"
-    app_name    = "dreamsqua-backend-api"
+    app_name    = "dreamsquad-backend-api"
 }
 module "job" {
     source      = "./service3-job"

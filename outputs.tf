@@ -7,6 +7,6 @@ output backend_url {
     value       = "" 
 }
 output job_bucket_name {
-    description = "Bucket name used by Service 3 - Scheduled Job"
+    description = "Bucket name used by Service 3 - Job"
     value       = ""
 }
