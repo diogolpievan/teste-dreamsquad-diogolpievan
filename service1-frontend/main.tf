@@ -22,7 +22,7 @@ resource "aws_s3_bucket_website_configuration" "frontend_website" {
 resource "aws_s3_bucket_policy" "public" {
     bucket = aws_s3_bucket.frontend.id
 
-    policy = jsoneconde({
+    policy = jsonencode({
         Version = "2012-10-17",
         Statement = [
             {
