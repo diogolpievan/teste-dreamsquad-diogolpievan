@@ -67,12 +67,3 @@ resource "aws_s3_object" "icon" {
     content_type = "application/javascript"
     acl          = "public-read"
 }
-
-resource "aws_s3_object" "logo" {
-    bucket       = aws_s3_bucket.frontend.id
-    key          = "script.js"
-    source       = "${path.module}/www/assets/logo.png"
-    content_type = "application/javascript"
-    acl          = "public-read"
-}
-
