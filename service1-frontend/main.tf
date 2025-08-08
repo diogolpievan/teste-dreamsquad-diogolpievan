@@ -3,7 +3,7 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "frontend" {
-    bucket        = "frontend-dremsquad-test-${random_id.bucket_suffix.hex}"
+    bucket        = "frontend-dreamsquad-test-${random_id.bucket_suffix.hex}"
     force_destroy = true
 }
 
