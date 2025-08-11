@@ -43,6 +43,7 @@ resource "aws_s3_bucket_policy" "public" {
             }
         ]
     })
+    depends_on = [aws_s3_bucket_public_access_block.public_access]
 }
 
 resource "aws_s3_object" "index" {
