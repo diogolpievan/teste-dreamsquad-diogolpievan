@@ -17,12 +17,13 @@ Este projeto implementa três serviços na AWS utilizando Terraform, atendendo a
 
 ## 📂 Estrutura de Pastas
 
+```
 .
-├── service1-frontend/ # S3 Static Website 
-├── service2-backend/ # EC2 com backend Node.js em container
-├── service3-job/ # Lambda + EventBridge + S3
-└── provider.tf # Configuração global do provider AWS
-
+├── service1-frontend/      # S3 Static Website
+├── service2-backend/       # EC2 com backend Node.js em container
+├── service3-job/           # Lambda + EventBridge + S3
+└── provider.tf             # Configuração global do provider AWS
+```
 ---
 
 ## 🚀 Pré-requisitos
