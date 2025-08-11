@@ -18,12 +18,10 @@ Este projeto implementa três serviços na AWS utilizando Terraform, atendendo a
 ## 📂 Estrutura de Pastas
 
 .
-├── service1-frontend/ # S3 Static Website
+├── service1-frontend/ # S3 Static Website 
 ├── service2-backend/ # EC2 com backend Node.js em container
 ├── service3-job/ # Lambda + EventBridge + S3
 └── provider.tf # Configuração global do provider AWS
-text
-
 
 ---
 
@@ -31,7 +29,6 @@ text
 
 - **AWS CLI** configurado (`aws configure`)
 - **Terraform** v1.5+ instalado
-- **Docker** instalado (para build da imagem, se necessário)
 - Conta AWS com permissões para:
   - S3, EC2, Lambda, EventBridge, IAM
 
@@ -55,12 +52,10 @@ text
 📦 Deploy
 
     Inicializar o Terraform
-    bash
 
-terraform init
+    terraform init
 
 Aplicar a infraestrutura
-bash
 
     terraform apply
 
@@ -74,7 +69,6 @@ Service 1 — Frontend
     Deploy automático via Terraform.
 
 Output:
-hcl
 
 frontend_url = "http://<bucket-name>.s3-website-<region>.amazonaws.com"
 
@@ -82,15 +76,13 @@ Service 2 — Backend
 
     API Node.js rodando em container Docker na EC2.
 
-    Imagem pública do Docker Hub (seuuser/api:latest).
+    Imagem pública do Docker Hub (diogolpievan/test-dreamsquad-backend).
 
     Porta 80 exposta.
 
 Testes:
-bash
-
 curl http://<ec2-public-ip>/
-curl http://<ec2-public-ip>/greet/Alfredo
+curl http://<ec2-public-ip>/greet/:name
 curl -X POST http://<ec2-public-ip>/data \
   -H "Content-Type: application/json" \
   -d '{"name": "Alfredo"}'
@@ -102,7 +94,6 @@ Service 3 — Job Lambda
     Cria arquivo timestamp.txt no S3 a cada execução.
 
 Testar manualmente:
-bash
 
 aws lambda invoke \
   --function-name service3-job-function \
@@ -113,7 +104,7 @@ cat response.json
 🗑 Remover Infraestrutura
 
 Para destruir todos os recursos:
-bash
+
 
 terraform destroy
 
@@ -126,13 +117,3 @@ terraform destroy
     Permissões IAM configuradas com princípio de menor privilégio (Lambda/EC2).
 
     Custos: Recursos utilizam free-tier onde possível.
-
-    ⚠️ Atenção: Monitorar custos na AWS após deploy prolongado.
-
-text
-
-
-### Melhorias Sugeridas:
-1. Adicione um `.gitignore` para arquivos temporários do Terraform (`.terraform`, `*.tfstate`).
-2. Inclua exemplos de `terraform.tfvars` no README.
-3. Documente como modificar a imagem Docker do backend (se aplicável).
