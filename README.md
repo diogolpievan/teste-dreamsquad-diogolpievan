@@ -53,13 +53,13 @@ Este projeto implementa três serviços na AWS utilizando Terraform, atendendo a
 📦 Deploy
 
     Inicializar o Terraform
-
+```bash
     terraform init
-
+```
 Aplicar a infraestrutura
-
+```bash
     terraform apply
-
+```
     Confirme com yes.
 
 📌 Serviços
@@ -82,7 +82,7 @@ Service 2 — Backend
     Porta 80 exposta.
 
 Testes:
-```
+```bash
 curl http://<ec2-public-ip>/
 curl http://<ec2-public-ip>/greet/:name
 curl -X POST http://<ec2-public-ip>/data \
@@ -96,20 +96,20 @@ Service 3 — Job Lambda
     Cria arquivo timestamp.txt no S3 a cada execução.
 
 Testar manualmente:
-
+```bash
 aws lambda invoke \
   --function-name service3-job-function \
   --payload '{}' \
   response.json
 cat response.json
-
+```
 🗑 Remover Infraestrutura
 
 Para destruir todos os recursos:
 
-
+```bash
 terraform destroy
-
+```
 📝 Observações
 
     Nomes de buckets S3 incluem sufixos aleatórios para evitar conflitos globais.
