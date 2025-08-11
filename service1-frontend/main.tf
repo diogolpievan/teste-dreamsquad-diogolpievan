@@ -19,6 +19,15 @@ resource "aws_s3_bucket_website_configuration" "frontend_website" {
     }
 }
 
+resource "aws_s3_bucket_public_access_block" "public_access" {
+  bucket = aws_s3_bucket.frontend.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 resource "aws_s3_bucket_policy" "public" {
     bucket = aws_s3_bucket.frontend.id
 
@@ -41,7 +50,6 @@ resource "aws_s3_object" "index" {
     key          = "index.html"
     source       = "${path.module}/www/index.html"
     content_type = "text/html"
-    acl          = "public-read"
 }
 
 resource "aws_s3_object" "style" {
@@ -49,7 +57,6 @@ resource "aws_s3_object" "style" {
     key          = "style.css"
     source       = "${path.module}/www/style.css"
     content_type = "text/css"
-    acl          = "public-read"
 }
 
 resource "aws_s3_object" "script" {
@@ -57,5 +64,4 @@ resource "aws_s3_object" "script" {
     key          = "script.js"
     source       = "${path.module}/www/script.js"
     content_type = "application/javascript"
-    acl          = "public-read"
 }
