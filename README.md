@@ -88,7 +88,7 @@ curl http://<ec2-public-ip>/greet/:name
 curl -X POST http://<ec2-public-ip>/data \
 -H "Content-Type: application/json" \
 -d '{"name": "Alfredo"}'
-
+```
 Service 3 — Job Lambda
 
     Função Python executada diariamente às 10h BRT (13h UTC).
