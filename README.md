@@ -87,7 +87,7 @@ curl http://<ec2-public-ip>/
 curl http://<ec2-public-ip>/greet/:name
 curl -X POST http://<ec2-public-ip>/data \
 -H "Content-Type: application/json" \
--d '{"name": "Alfredo"}'
+-d '{"name": "Diogo"}'
 ```
 Service 3 — Job Lambda
 
